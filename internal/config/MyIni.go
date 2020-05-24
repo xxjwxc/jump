@@ -16,5 +16,5 @@ type SSH struct {
 
 // GetSSH 获取ssh信息
 func GetSSH() SSH {
-	return _map.SSH
+	return _info.SSH
 }

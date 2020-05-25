@@ -1,5 +1,9 @@
 package config
 
+import (
+	"path"
+)
+
 // Config custom config struct
 type Config struct {
 	CfgBase `yaml:"base"`
@@ -18,4 +22,9 @@ type SSH struct {
 // GetSSH 获取ssh信息
 func GetSSH() SSH {
 	return _info.SSH
+}
+
+// GetDir get remote dir set
+func GetDir() string {
+	return path.Dir(_info.Dir)
 }

@@ -1,4 +1,4 @@
-NAME := rmon
+NAME := jump
 all: # 构建
 	make clear
 build:

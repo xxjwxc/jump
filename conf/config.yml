@@ -1,0 +1,13 @@
+base:
+    serial_number: ""
+    service_name: ""
+    service_displayname: ""
+    sercice_desc: ""
+    is_dev: false
+ssh:
+    ip: 175.24.103.30
+    port: 22
+    username: ubuntu
+    password: qwer@1234
+dir: /var/log/
+

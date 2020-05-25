@@ -6,7 +6,7 @@ import (
 	"os"
 	"path"
 
-	homedir "github.com/mitchellh/go-homedir"
+	// homedir "github.com/mitchellh/go-homedir"
 	"github.com/xxjwxc/public/dev"
 	"github.com/xxjwxc/public/tools"
 	"gopkg.in/yaml.v3"
@@ -27,13 +27,13 @@ var configPath string
 
 func init() {
 	// Find home directory.
-	home, err := homedir.Dir()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	// home, err := homedir.Dir()
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	os.Exit(1)
+	// }
 
-	configPath = path.Join(home, ".conf_rmon.yml") // path.Join(tools.GetCurrentDirectory(), "conf/config.yml")
+	configPath = path.Join(tools.GetCurrentDirectory(), "conf/config.yml")
 	onInit()
 	dev.OnSetDev(_info.IsDev)
 }

@@ -1,14 +1,11 @@
 package config
 
-import (
-	"path"
-)
-
 // Config custom config struct
 type Config struct {
 	CfgBase `yaml:"base"`
-	SSH     SSH    `yaml:"ssh"`
-	Dir     string `yaml:"dir"`
+	SSH     SSH `yaml:"ssh"`
+	//	Dir     string   `yaml:"dir"`
+	Cmd []string `yaml:"cmd"`
 }
 
 // SSH 远程地址端口
@@ -25,6 +22,11 @@ func GetSSH() SSH {
 }
 
 // GetDir get remote dir set
-func GetDir() string {
-	return path.Dir(_info.Dir)
+// func GetDir() string {
+// 	return path.Dir(_info.Dir)
+// }
+
+// GetCmd get commond list
+func GetCmd() []string {
+	return _info.Cmd
 }

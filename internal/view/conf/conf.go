@@ -24,6 +24,7 @@ func InitFlag(cmd *cobra.Command) {
 	cmd.Flags().StringP("pwd", "p", "", "password of ssh. 主机密码")
 	cmd.Flags().StringP("user", "u", "", "user of ssh. 主机用户名")
 	cmd.Flags().StringP("dir", "d", "", "dir of ssh. 主机主目录")
+	cmd.Flags().StringSliceP("cmd", "c", nil, "commond of shell. run 模式下进入主目录执行的命令")
 	// viper.BindPFlag("host", cmd.Flags().Lookup("host"))
 	// cmd.MarkFlagRequired("host")
 
@@ -63,6 +64,8 @@ func ReadConfig(cmd *cobra.Command) {
 	err = mycobra.IfReplace(cmd, "user", &_info.SSH.Username)
 	ce(err, "user")
 
-	err = mycobra.IfReplace(cmd, "dir", &_info.Dir)
-	ce(err, "dir")
+	// err = mycobra.IfReplace(cmd, "dir", &_info.Dir)
+	// ce(err, "dir")
+	err = mycobra.IfReplace(cmd, "cmd", &_info.Cmd)
+	ce(err, "cmd")
 }

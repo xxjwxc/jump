@@ -19,6 +19,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/xxjwxc/public/mylog"
+	"github.com/xxjwxdc/rmon/internal/view/run"
+
 	"github.com/spf13/cobra"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -29,20 +32,23 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "rmon",
+	Use:   "jump",
 	Short: "remote monitoring",
-	Long: `rmon is a remote monitoring base on ssh , 
+	Long: `jump is a remote monitoring base on ssh , 
 	support ptrace to monitor runing programs cmd info .`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		mylog.Info("using default cmd (jump -run).使用默认方式.")
+		run.InitRun(cmd)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
+		mylog.Error(err)
 		os.Exit(1)
 	}
 }
